@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Commodore 64",
+    "category": "Computer",
+    "model": "C64",
+    "year": 1982,
+    "vendor": "Commodore",
+    "megahertz": 1,
+    "quantity": 3,
+    "description": "Classic 8-bit home computer with SID sound and 64 KB of RAM.",
+    "image": "images/commodore_64.png"
+  },
+  {
+    "id": 2,
+    "name": "IBM PC 5150",
+    "category": "Computer",
+    "model": "5150",
+    "year": 1981,
+    "vendor": "IBM",
+    "megahertz": 4.77,
+    "quantity": 1,
+    "description": "Original IBM PC with Intel 8088 CPU and CGA graphics.",
+    "image": "images/ibm_pc_5150.png"
+  },
+  {
+    "id": 3,
+    "name": "NVIDIA GeForce GTX 1080",
+    "category": "GPU",
+    "model": "GTX 1080",
+    "year": 2016,
+    "vendor": "NVIDIA",
+    "megahertz": 1607,
+    "quantity": 2,
+    "description": "High-end Pascal GPU for gaming and retro emulation.",
+    "image": "images/gtx_1080.png"
+  },
+  {
+    "id": 4,
+    "name": "Intel Core i7-2600K",
+    "category": "CPU",
+    "model": "2600K",
+    "year": 2011,
+    "vendor": "Intel",
+    "megahertz": 3400,
+    "quantity": 4,
+    "description": "Sandy Bridge quad-core CPU popular among enthusiasts.",
+    "image": "images/i7_2600k.png"
+  },
+  {
+    "id": 5,
+    "name": "Kingston HyperX Fury 8GB",
+    "category": "Ram",
+    "model": "HX318C10F/8",
+    "year": 2014,
+    "vendor": "Kingston",
+    "megahertz": 1600,
+    "quantity": 8,
+    "description": "DDR3 memory module widely used in vintage and modern builds.",
+    "image": "images/hyperx_fury.png"
+  }
+]
