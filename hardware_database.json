@@ -58,5 +58,17 @@
     "quantity": 8,
     "description": "DDR3 memory module widely used in vintage and modern builds.",
     "image": "images/hyperx_fury.png"
+  },
+  {
+    "id": 6,
+    "name": "Intel Pentium SX835",
+    "category": "CPU",
+    "model": "SX835",
+    "year": 1992,
+    "vendor": "Intel",
+    "megahertz": 60,
+    "quantity": 1,
+    "description": "Key Specifications:\n\nClock Speed: 60 MHz with a 60 MHz front-side bus. \nSocket: Socket 4 (specifically designed for 5V processors). \nPackage: Ceramic PGA (Pin Grid Array) with a distinctive gold-plated heat spreader (\"Goldcap\"). \nCache: 16 KB L1 cache (8 KB for instructions, 8 KB for data). \nProcess: 0.8 micron manufacturing technology. \nNotable Feature: The C1 stepping (SX835) is famously associated with the FDIV bug, a hardware error in the floating-point unit that caused incorrect division results in rare cases.  This defect led to a massive recall by Intel.",
+    "image": "_DSC4280 (2020_07_17 03_41_00 UTC).png"
   }
 ]
