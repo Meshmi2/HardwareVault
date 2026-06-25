@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Hardware Archive - Exploring Computing History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .intro-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .hardware-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hardware-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .hardware-card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .hardware-card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hardware-card-body {
+            padding: 1.5rem;
+        }
+        
+        .specs {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .specs li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specs li:last-child {
+            border-bottom: none;
+        }
+        
+        .specs strong {
+            color: #667eea;
+        }
+        
+        .db-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .db-section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .search-form input,
+        .search-form select,
+        .search-form button {
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .search-form input,
+        .search-form select {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .search-form button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .search-form button:hover {
+            opacity: 0.9;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .hardware-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🖥️ Retro Hardware Archive</h1>
+        <p>Preserving Computing History - One Device at a Time</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#database">Database</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="intro-section" id="home">
+            <h2>Welcome to the Retro Hardware Archive</h2>
+            <p>Dive into the fascinating world of vintage computing hardware. From the earliest microcomputers to classic workstations, explore the machines that shaped the digital revolution. Our comprehensive database allows you to search, discover, and learn about historical computing devices.</p>
+        </section>
+        
+        <section id="collection">
+            <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem;">Featured Hardware</h2>
+            
+            <div class="hardware-grid">
+                <div class="hardware-card">
+                    <div class="hardware-card-header">
+                        <h3>Commodore 64</h3>
+                        <p>1982 - Home Computer</p>
+                    </div>
+                    <div class="hardware-card-body">
+                        <ul class="specs">
+                            <li><strong>CPU:</strong> MOS 6510 @ 1 MHz</li>
+                            <li><strong>RAM:</strong> 64 KB</li>
+                            <li><strong>Storage:</strong> Datasette / Disk Drive</li>
+                            <li><strong>Graphics:</strong> 320x200 pixels</li>
+                            <li><strong>Legacy:</strong> Best-selling computer of all time</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hardware-card">
+                    <div class="hardware-card-header">
+                        <h3>Apple II</h3>
+                        <p>1977 - Personal Computer</p>
+                    </div>
+                    <div class="hardware-card-body">
+                        <ul class="specs">
+                            <li><strong>CPU:</strong> MOS 6502 @ 1 MHz</li>
+                            <li><strong>RAM:</strong> 4 KB - 64 KB</li>
+                            <li><strong>Display:</strong> Color or Monochrome</li>
+                            <li><strong>Expansion:</strong> 7 Expansion Slots</li>
+                            <li><strong>Impact:</strong> Pioneering home computer</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hardware-card">
+                    <div class="hardware-card-header">
+                        <h3>IBM PC 5150</h3>
+                        <p>1981 - Personal Computer</p>
+                    </div>
+                    <div class="hardware-card-body">
+                        <ul class="specs">
+                            <li><strong>CPU:</strong> Intel 8088 @ 4.77 MHz</li>
+                            <li><strong>RAM:</strong> 16 KB - 640 KB</li>
+                            <li><strong>Storage:</strong> 5.25" Floppy Disk</li>
+                            <li><strong>OS:</strong> PC-DOS 1.0</li>
+                            <li><strong>Legacy:</strong> Industry standard platform</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="db-section" id="database">
+            <h2>Hardware Database</h2>
+            <p>Search our extensive database of vintage computing hardware. Filter by category, era, manufacturer, and specifications.</p>
+            
+            <div class="search-form">
+                <input type="text" placeholder="Search by model name...">
+                <select>
+                    <option value="">Category</option>
+                    <option value="computer">Computer</option>
+                    <option value="peripheral">Peripheral</option>
+                    <option value="console">Gaming Console</option>
+                    <option value="monitor">Monitor</option>
+                </select>
+                <select>
+                    <option value="">Decade</option>
+                    <option value="1970s">1970s</option>
+                    <option value="1980s">1980s</option>
+                    <option value="1990s">1990s</option>
+                    <option value="2000s">2000s</option>
+                </select>
+                <button onclick="searchDatabase()">Search</button>
+            </div>
+            
+            <p style="font-style: italic; color: #666; margin-top: 1rem;">💡 Note: Database integration ready. Connect to backend API for dynamic data retrieval.</p>
+        </section>
+    </div>
+    
+    <footer id="contact">
+        <h3>Retro Hardware Archive</h3>
+        <p>&copy; 2024 All rights reserved. Preserving computing history for future generations.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Contact: info@retrohardware.archive | Contribute: contribute@retrohardware.archive</p>
+    </footer>
+    
+    <script>
+        function searchDatabase() {
+            const searchInput = document.querySelector('.search-form input').value;
+            const category = document.querySelector('.search-form select:nth-of-type(1)').value;
+            const decade = document.querySelector('.search-form select:nth-of-type(2)').value;
+            
+            console.log('Search Query:', {
+                search: searchInput,
+                category: category,
+                decade: decade
+            });
+            
+            // TODO: Implement API call to backend database
+            // Example: fetch('/api/hardware/search', {
+            //     method: 'POST',
+            //     body: JSON.stringify({ search: searchInput, category, decade })
+            // })
+            
+            alert('Database search functionality ready for backend integration!');
+        }
+    </script>
+</body>
+</html>
