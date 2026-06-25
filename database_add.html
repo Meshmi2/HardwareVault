@@ -86,11 +86,14 @@
 
 			<div class="full">
 				<div class="actions">
+					<button type="button" class="secondary" id="loadDbBtn">Load Database</button>
+					<button type="button" class="secondary" id="saveDbBtn">Save Database</button>
 					<button type="submit">Add Hardware</button>
 					<button type="button" class="secondary" id="resetBtn">Reset</button>
 				</div>
 			</div>
 
+			<p id="dbStatus" class="note full">Database not loaded. Usa "Load Database" per aprire <code>hardware_database.json</code> o caricalo tramite server locale.</p>
 			<div id="msg" class="full"></div>
 		</form>
 	</div>
@@ -100,14 +103,31 @@
 		const msg = document.getElementById('msg');
 		const imageInput = document.getElementById('image');
 		const imagePreview = document.getElementById('imagePreview');
-		document.getElementById('resetBtn').addEventListener('click', ()=>{
+		const dbStatus = document.getElementById('dbStatus');
+		const loadDbBtn = document.getElementById('loadDbBtn');
+		const saveDbBtn = document.getElementById('saveDbBtn');
+
+		let dbHandle = null;
+		let database = [];
+
+		function updateDbStatus() {
+			if (dbHandle) {
+				dbStatus.textContent = `Database caricato: ${dbHandle.name} (${database.length} record)`;
+				dbStatus.className = 'note full';
+			} else {
+				dbStatus.textContent = 'Database non caricato. Usa "Load Database" per aprire hardware_database.json.';
+				dbStatus.className = 'note full';
+			}
+		}
+
+		document.getElementById('resetBtn').addEventListener('click', () => {
 			form.reset();
 			imagePreview.innerHTML = 'Nessuna immagine selezionata';
 		});
 
-		imageInput.addEventListener('change', ()=>{
+		imageInput.addEventListener('change', () => {
 			const file = imageInput.files[0];
-			if(!file){
+			if (!file) {
 				imagePreview.innerHTML = 'Nessuna immagine selezionata';
 				return;
 			}
@@ -118,26 +138,99 @@
 			reader.readAsDataURL(file);
 		});
 
-		form.addEventListener('submit', async (e)=>{
-			e.preventDefault();
+		async function readDatabaseFile() {
+			if (!window.showOpenFilePicker) {
+				throw new Error('File System Access API non supportata dal browser. Usa Chrome/Edge o un browser compatibile.');
+			}
+
+			const [handle] = await window.showOpenFilePicker({
+				types: [{
+					description: 'JSON Database',
+					accept: {'application/json': ['.json']}
+				}],
+				excludeAcceptAllOption: true,
+				multiple: false
+			});
+			const file = await handle.getFile();
+			const text = await file.text();
+			database = JSON.parse(text || '[]');
+			dbHandle = handle;
+			updateDbStatus();
+		}
+
+		async function saveDatabaseFile() {
+			if (!dbHandle) {
+				throw new Error('Nessun file database aperto. Carica prima hardware_database.json.');
+			}
+			const writable = await dbHandle.createWritable();
+			await writable.write(JSON.stringify(database, null, 2));
+			await writable.close();
+		}
+
+		loadDbBtn.addEventListener('click', async () => {
 			msg.textContent = '';
-			const data = new FormData(form);
-			try{
-				const res = await fetch(form.action, {method:form.method, body:data});
-				if(res.ok){
-					msg.textContent = 'Hardware added successfully.';
-					msg.className = 'note full';
-					form.reset();
-				} else {
-					const text = await res.text();
-					msg.textContent = 'Error: '+(text||res.statusText);
-					msg.className = 'error full';
-				}
-			}catch(err){
-				msg.textContent = 'Network error';
+			try {
+				await readDatabaseFile();
+				msg.textContent = 'Database caricato correttamente.';
+				msg.className = 'note full';
+			} catch (err) {
+				msg.textContent = err.message;
 				msg.className = 'error full';
 			}
 		});
+
+		saveDbBtn.addEventListener('click', async () => {
+			msg.textContent = '';
+			try {
+				await saveDatabaseFile();
+				msg.textContent = 'Database salvato correttamente.';
+				msg.className = 'note full';
+			} catch (err) {
+				msg.textContent = err.message;
+				msg.className = 'error full';
+			}
+		});
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			msg.textContent = '';
+
+			if (!dbHandle) {
+				msg.textContent = 'Carica prima hardware_database.json per aggiungere un record al file locale.';
+				msg.className = 'error full';
+				return;
+			}
+
+			const data = new FormData(form);
+			const newItem = {
+				id: database.reduce((max, item) => Math.max(max, item.id || 0), 0) + 1,
+				name: data.get('name') || '',
+				category: data.get('category') || '',
+				model: data.get('model') || '',
+				year: data.get('year') ? Number(data.get('year')) : null,
+				vendor: data.get('vendor') || '',
+				megahertz: data.get('megahertz') ? Number(data.get('megahertz')) : null,
+				quantity: data.get('quantity') ? Number(data.get('quantity')) : 1,
+				description: data.get('description') || '',
+				image: imageInput.files[0] ? imageInput.files[0].name : ''
+			};
+
+			database.push(newItem);
+			try {
+				await saveDatabaseFile();
+				msg.textContent = 'Hardware aggiunto e database salvato.';
+				msg.className = 'note full';
+				form.reset();
+				imagePreview.innerHTML = 'Nessuna immagine selezionata';
+				updateDbStatus();
+			} catch (err) {
+				database.pop();
+				msg.textContent = 'Errore salvataggio: ' + err.message;
+				msg.className = 'error full';
+			}
+		});
+
+		updateDbStatus();
 	</script>
 </body>
 </html>
