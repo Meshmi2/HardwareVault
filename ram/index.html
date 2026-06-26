@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RAM Database | HardwareVault</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<h1>Memory Database</h1>
+
+<input id="searchBox" placeholder="Search RAM...">
+
+<div id="results"></div>
+
+<script src="../js/engine.js"></script>
+<script src="../js/search.js"></script>
+
+<script>
+loadEngine().then(() => {
+
+document.getElementById("searchBox").addEventListener("input", (e) => {
+
+const results = searchEngine(e.target.value)
+.filter(x => x.category === "Memory");
+
+render(results);
+
+});
+
+});
+
+function render(results) {
+
+document.getElementById("results").innerHTML = results.map(i => `
+
+<div class="card">
+<h3>${i.brand} ${i.model}</h3>
+<p>${i.year}</p>
+<a href="/pages/${i.id}.html">Open</a>
+</div>
+
+`).join("");
+
+}
+</script>
+
+</body>
+</html>
