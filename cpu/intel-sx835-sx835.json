@@ -1,0 +1,11 @@
+{
+  "id": "intel-sx835-sx835",
+  "brand": "Intel sx835",
+  "model": "sx835",
+  "year": "1992",
+  "category": "CPU",
+  "specs": "The Intel SX835 is a specific stepping of the original Intel Pentium 60 MHz processor, released in 1993–1994 as part of Intel's first-generation Pentium lineup (codenamed P5) \n1 \n5. It was designed for Socket 4 motherboards and used a 60 MHz front-side bus (FSB) with a 1x multiplier, resulting in a clock speed of 60 MHz \n1 \n3.\n\nKey characteristics of the SX835 include:\n\nPackage Type: Ceramic Pin Grid Array (CPGA) with gold contacts, typical of early Pentium chips \n5.\nCache: 8 KB L1 instruction cache and 8 KB L1 data cache \n1 \n3.\nVoltage: Operated at 5.0V, which contributed to its relatively high power consumption and heat output (TDP around 14W) \n1.\nManufacturing Process: Built on an 800 nm process \n1.\nStepping Code: The \"C1\" stepping, identifiable by the sSpec number SX835 \n1 \n4.\nNotably, the SX835 is historically significant because it is one of the stepping revisions affected by the infamous Intel FDIV bug \n1 \n4. This hardware flaw caused incorrect results in certain floating-point division operations, leading to a major recall and public relations crisis for Intel in 1994. Processors with this bug were later replaced or repaired under Intel's warranty program \n1.\n\nToday, the SX835 is primarily of interest to vintage computing collectors and hardware enthusiasts, often sought after for retro PC builds or as a piece of computer history",
+  "images": [
+    "/images/cpu/intel-sx835-sx835/_DSC4280 (2020_07_17 03_41_00 UTC).png"
+  ]
+}
