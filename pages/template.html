@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HardwareVault</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div id="content"></div>
+
+<script>
+async function loadItem() {
+
+const id = location.pathname.split("/").pop().replace(".html","");
+
+const res = await fetch("/data/cpu/" + id + ".json").catch(() =>
+fetch("/data/gpu/" + id + ".json")
+);
+
+const data = await res.json();
+
+document.getElementById("content").innerHTML = `
+
+<h1>${data.brand} ${data.model}</h1>
+
+<p>${data.year}</p>
+
+<p>${data.category}</p>
+
+<pre>${JSON.stringify(data, null, 2)}</pre>
+
+`;
+
+}
+
+loadItem();
+</script>
+
+</body>
+</html>
