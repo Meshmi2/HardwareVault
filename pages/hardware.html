@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hardware Details | HardwareVault</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+body { background:#0f0f0f; color:#fff; font-family:Arial; padding:20px; }
+
+.container { max-width:1000px; margin:auto; }
+
+h1 { color:#00ff99; }
+
+.gallery {
+display:flex;
+gap:10px;
+overflow-x:auto;
+margin:20px 0;
+}
+
+.gallery img {
+height:200px;
+border-radius:8px;
+border:1px solid #333;
+}
+
+.card {
+background:#1c1c1c;
+padding:15px;
+border-radius:8px;
+margin:10px 0;
+}
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
+}
+
+.badge {
+display:inline-block;
+padding:5px 10px;
+background:#00ff99;
+color:#000;
+border-radius:5px;
+font-size:12px;
+margin:5px 0;
+}
+
+table {
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+td, th {
+border:1px solid #333;
+padding:8px;
+}
+
+th { background:#222; }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="title">Loading...</h1>
+
+<div id="badge"></div>
+
+<div class="gallery" id="gallery"></div>
+
+<div class="card">
+<h2>Specifications</h2>
+<div id="specs"></div>
+</div>
+
+<div class="card">
+<h2>Benchmarks</h2>
+<table id="benchmarks"></table>
+</div>
+
+<div class="card">
+<h2>Overview</h2>
+<p id="description"></p>
+</div>
+
+<div class="card">
+<h2>Quick Compare (basic)</h2>
+<div id="compare"></div>
+</div>
+
+</div>
+
+<script>
+async function loadHardware() {
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if (!id) return;
+
+const res = await fetch("../data/index.json");
+const db = await res.json();
+
+const item = db.find(x => x.id === id);
+
+if (!item) {
+document.body.innerHTML = "<h1>Not found</h1>";
+return;
+}
+
+// TITLE
+document.getElementById("title").innerText =
+item.brand + " " + item.model;
+
+// BADGE
+document.getElementById("badge").innerHTML =
+`<span class="badge">${item.category}</span> <span class="badge">${item.year}</span>`;
+
+// GALLERY
+if (item.images) {
+document.getElementById("gallery").innerHTML =
+item.images.map(img => `<img src="${img}">`).join("");
+}
+
+// SPECS
+document.getElementById("specs").innerHTML = `
+<p><b>Brand:</b> ${item.brand}</p>
+<p><b>Model:</b> ${item.model}</p>
+<p><b>Year:</b> ${item.year}</p>
+<p><b>Category:</b> ${item.category}</p>
+<p><b>Socket / Type:</b> ${item.socket || "N/A"}</p>
+<p><b>Raw Specs:</b> ${item.specs || "N/A"}</p>
+`;
+
+// BENCHMARKS
+if (item.benchmarks) {
+
+let rows = "<tr><th>Test</th><th>Score</th></tr>";
+
+for (let key in item.benchmarks) {
+rows += `<tr><td>${key}</td><td>${item.benchmarks[key]}</td></tr>`;
+}
+
+document.getElementById("benchmarks").innerHTML = rows;
+
+}
+
+// DESCRIPTION
+document.getElementById("description").innerText =
+item.description || "No description available.";
+
+// BASIC COMPARISON (same category)
+const similar = db
+.filter(x => x.category === item.category && x.id !== item.id)
+.slice(0, 3);
+
+document.getElementById("compare").innerHTML =
+similar.map(s => `
+<p>⚔ ${s.brand} ${s.model} (${s.year})</p>
+`).join("");
+
+}
+
+loadHardware();
+</script>
+
+</body>
+</html>
