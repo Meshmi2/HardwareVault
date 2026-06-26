@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HardwareVault Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>HardwareVault Admin Panel</h1>
+
+<div class="form">
+
+<input id="brand" placeholder="Manufacturer (Intel, AMD...)">
+<input id="model" placeholder="Model">
+<input id="year" placeholder="Year">
+
+<select id="category">
+<option>CPU</option>
+<option>GPU</option>
+<option>Motherboard</option>
+<option>Memory</option>
+<option>Storage</option>
+</select>
+
+<textarea id="specs" placeholder="Key specs (GHz, cores, etc)"></textarea>
+
+<input type="file" id="images" multiple>
+
+<button onclick="generate()">Generate Entry</button>
+
+</div>
+
+<pre id="output"></pre>
+
+<script src="app.js"></script>
+
+</body>
+</html>

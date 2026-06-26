@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVZFMPSZFN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -13,400 +13,159 @@
     <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/850fa9330444602e21e9b991c3d257bf/script.js"></script> <!-- End cookieyes banner -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Hardware Archive - Exploring Computing History</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        nav {
-            background-color: #333;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding: 0 1rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #667eea;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        .intro-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .intro-section h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-        
-        .hardware-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .hardware-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .hardware-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        }
-        
-        .hardware-card-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-        }
-        
-        .hardware-card-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .hardware-card-body {
-            padding: 1.5rem;
-        }
-        
-        .specs {
-            list-style: none;
-            margin: 1rem 0;
-        }
-        
-        .specs li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .specs li:last-child {
-            border-bottom: none;
-        }
-        
-        .specs strong {
-            color: #667eea;
-        }
-        
-        .db-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-top: 2rem;
-        }
-        
-        .db-section h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-        
-        .search-form {
-            display: flex;
-            gap: 1rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .search-form input,
-        .search-form select,
-        .search-form button {
-            padding: 0.75rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        
-        .search-form input,
-        .search-form select {
-            flex: 1;
-            min-width: 150px;
-        }
-        
-        .search-form button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: opacity 0.3s;
-        }
-        
-        .search-form button:hover {
-            opacity: 0.9;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            .hardware-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+
+<title>HardwareVault | Vintage Computer Hardware Database</title>
+
+<meta name="description" content="HardwareVault is a free archive of vintage computer hardware featuring detailed specifications, benchmark results, high-resolution photos, manuals, BIOS files, and historical information about CPUs, GPUs, motherboards, memory, and expansion cards.">
+
+<meta name="keywords" content="hardware database,vintage hardware,retro computers,CPU database,GPU database,benchmark archive,old hardware,overclock,hardware museum">
+
+<meta name="author" content="HardwareVault">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="icon" href="favicon.ico">
+
 </head>
+
+<input id="searchBox" placeholder="Search CPU, GPU, chipset..." />
+
+<div id="results"></div>
+
 <body>
-    <header>
-        <h1>🖥️ Retro Hardware Archive</h1>
-        <p>Preserving Computing History - One Device at a Time</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#collection">Collection</a></li>
-            <li><a href="#database">Database</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <section class="intro-section" id="home">
-            <h2>Welcome to the Retro Hardware Archive</h2>
-            <p>Dive into the fascinating world of vintage computing hardware. From the earliest microcomputers to classic workstations, explore the machines that shaped the digital revolution. Our comprehensive database allows you to search, discover, and learn about historical computing devices.</p>
-        </section>
-        
-        <section id="collection">
-            <h2 style="text-align: center; color: #667eea; margin-bottom: 2rem;">Featured Hardware</h2>
-            
-            <div class="hardware-grid">
-                <div class="hardware-card">
-                    <div class="hardware-card-header">
-                        <h3>Commodore 64</h3>
-                        <p>1982 - Home Computer</p>
-                    </div>
-                    <div class="hardware-card-body">
-                        <ul class="specs">
-                            <li><strong>CPU:</strong> MOS 6510 @ 1 MHz</li>
-                            <li><strong>RAM:</strong> 64 KB</li>
-                            <li><strong>Storage:</strong> Datasette / Disk Drive</li>
-                            <li><strong>Graphics:</strong> 320x200 pixels</li>
-                            <li><strong>Legacy:</strong> Best-selling computer of all time</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="hardware-card">
-                    <div class="hardware-card-header">
-                        <h3>Apple II</h3>
-                        <p>1977 - Personal Computer</p>
-                    </div>
-                    <div class="hardware-card-body">
-                        <ul class="specs">
-                            <li><strong>CPU:</strong> MOS 6502 @ 1 MHz</li>
-                            <li><strong>RAM:</strong> 4 KB - 64 KB</li>
-                            <li><strong>Display:</strong> Color or Monochrome</li>
-                            <li><strong>Expansion:</strong> 7 Expansion Slots</li>
-                            <li><strong>Impact:</strong> Pioneering home computer</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="hardware-card">
-                    <div class="hardware-card-header">
-                        <h3>IBM PC 5150</h3>
-                        <p>1981 - Personal Computer</p>
-                    </div>
-                    <div class="hardware-card-body">
-                        <ul class="specs">
-                            <li><strong>CPU:</strong> Intel 8088 @ 4.77 MHz</li>
-                            <li><strong>RAM:</strong> 16 KB - 640 KB</li>
-                            <li><strong>Storage:</strong> 5.25" Floppy Disk</li>
-                            <li><strong>OS:</strong> PC-DOS 1.0</li>
-                            <li><strong>Legacy:</strong> Industry standard platform</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="db-section" id="database">
-            <h2>Hardware Database</h2>
-            <p>Search our extensive database of vintage computing hardware. Filter by category, era, manufacturer, and specifications.</p>
-            
-            <div class="search-form">
-                <input type="text" placeholder="Search by model name...">
-                <select>
-                    <option value="">Category</option>
-                </select>
-                <select>
-                    <option value="">Decade</option>
-                    <option value="1970s">1970s</option>
-                    <option value="1980s">1980s</option>
-                    <option value="1990s">1990s</option>
-                    <option value="2000s">2000s</option>
-                    <option value="2010s">2010s</option>
-                    <option value="2020s">2020s</option>
-                </select>
-                <button type="button" onclick="searchDatabase()">Search</button>
-                <button type="button" onclick="location.href='database_add.html'" style="background: #fff; color: #667eea; border: 1px solid #667eea; font-weight:600;">Add Hardware</button>
-            </div>
 
-            <p id="dbCount" style="font-style: italic; color: #666; margin-top: 1rem;">Caricamento database in corso...</p>
-            <p id="dbMessage" style="font-style: italic; color: #666; margin-top: 0.5rem;"></p>
-            <div id="dbResults"></div>
-        </section>
-    </div>
-    
-    <footer id="contact">
-        <h3>Retro Hardware Archive</h3>
-        <p>&copy; 2026 All rights reserved. Preserving computing history for future generations.</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">Contact: meshmi@outlook.it | Contribute: meshmi@outlook.it</p>
-    </footer>
-    
-    <script>
-        let hardwareData = [];
+<header>
 
-        async function loadHardwareDatabase() {
-            try {
-                const response = await fetch('hardware_database.json');
-                if (!response.ok) throw new Error('Impossibile caricare hardware_database.json');
-                hardwareData = await response.json();
-                populateCategoryFilter();
-                renderDatabaseResults(hardwareData);
-                document.getElementById('dbCount').textContent = `Record caricati: ${hardwareData.length}`;
-                document.getElementById('dbMessage').textContent = 'Usa la ricerca per filtrare per nome, categoria o decade.';
-            } catch (error) {
-                document.getElementById('dbCount').textContent = 'Errore nel caricamento del database.';
-                document.getElementById('dbMessage').textContent = error.message;
-            }
-        }
+<div class="logo">
+<h1>HardwareVault</h1>
+<p>Preserving the History of Computer Hardware</p>
+</div>
 
-        function populateCategoryFilter() {
-            const categorySelect = document.querySelector('.search-form select');
-            const categories = [...new Set(hardwareData.map(item => item.category).filter(Boolean))].sort();
-            categories.forEach(category => {
-                const option = document.createElement('option');
-                option.value = category.toLowerCase();
-                option.textContent = category;
-                categorySelect.appendChild(option);
-            });
-        }
+<nav>
 
-        function renderDatabaseResults(items) {
-            const results = document.getElementById('dbResults');
-            if (!items.length) {
-                results.innerHTML = '<p style="color:#555; margin-top:1rem;">Nessun risultato trovato con i criteri selezionati.</p>';
-                return;
-            }
+<a href="index.html">Home</a>
+<a href="cpu/">CPUs</a>
+<a href="gpu/">GPUs</a>
+<a href="motherboards/">Motherboards</a>
+<a href="memory/">Memory</a>
+<a href="storage/">Storage</a>
+<a href="expansion-cards/">Expansion Cards</a>
+<a href="benchmarks/">Benchmarks</a>
+<a href="gallery/">Gallery</a>
+<a href="downloads/">Downloads</a>
 
-            results.innerHTML = items.map(item => {
-                const decade = item.year ? `${Math.floor(item.year / 10) * 10}s` : 'Sconosciuta';
-                return `
-                    <div class="hardware-card" style="margin-top:1rem;">
-                        <div class="hardware-card-header">
-                            <h3>${item.name}</h3>
-                            <p>${item.year || 'Anno sconosciuto'} - ${item.category || 'Categoria sconosciuta'}</p>
-                        </div>
-                        <div class="hardware-card-body">
-                            <ul class="specs">
-                                <li><strong>Model:</strong> ${item.model || '—'}</li>
-                                <li><strong>Vendor:</strong> ${item.vendor || '—'}</li>
-                                <li><strong>MHz:</strong> ${item.megahertz ?? '—'}</li>
-                                <li><strong>Quantity:</strong> ${item.quantity ?? '—'}</li>
-                                <li><strong>Decade:</strong> ${decade}</li>
-                            </ul>
-                            <p>${item.description || ''}</p>
-                        </div>
-                    </div>`;
-            }).join('');
-        }
+</nav>
 
-        function searchDatabase() {
-            const searchInput = document.querySelector('.search-form input').value.trim().toLowerCase();
-            const category = document.querySelector('.search-form select:nth-of-type(1)').value;
-            const decade = document.querySelector('.search-form select:nth-of-type(2)').value;
+</header>
 
-            const filtered = hardwareData.filter(item => {
-                const matchesSearch = !searchInput || [item.name, item.model, item.vendor, item.description]
-                    .filter(Boolean)
-                    .some(value => value.toLowerCase().includes(searchInput));
+<section class="hero">
 
-                const matchesCategory = !category || (item.category && item.category.toLowerCase() === category);
-                const itemDecade = item.year ? `${Math.floor(item.year / 10) * 10}s` : '';
-                const matchesDecade = !decade || itemDecade === decade;
+<h2>Explore the Evolution of Computer Hardware</h2>
 
-                return matchesSearch && matchesCategory && matchesDecade;
-            });
+<p>
 
-            renderDatabaseResults(filtered);
-            document.getElementById('dbCount').textContent = `Risultati: ${filtered.length} / ${hardwareData.length}`;
-        }
+HardwareVault is a comprehensive archive dedicated to preserving vintage computer hardware. Discover detailed specifications, benchmark results, high-resolution photography, manuals, BIOS files, drivers, and historical information covering decades of computing innovation.
 
-        loadHardwareDatabase();
-    </script>
+</p>
+
+<a class="button" href="cpu/">
+Browse the Database
+</a>
+
+</section>
+
+<section>
+
+<h2>Featured Categories</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Processors</h3>
+<p>Intel, AMD, Cyrix, VIA, IBM, Motorola and many more.</p>
+</div>
+
+<div class="card">
+<h3>Graphics Cards</h3>
+<p>3dfx, ATI, NVIDIA, Matrox, S3, PowerVR and other classic GPUs.</p>
+</div>
+
+<div class="card">
+<h3>Motherboards</h3>
+<p>Chipsets, sockets, BIOS versions and compatibility information.</p>
+</div>
+
+<div class="card">
+<h3>Memory</h3>
+<p>SIMM, DIMM, SDR, DDR and legacy memory technologies.</p>
+</div>
+
+<div class="card">
+<h3>Benchmarks</h3>
+<p>Performance comparisons across multiple hardware generations.</p>
+</div>
+
+<div class="card">
+<h3>Downloads</h3>
+<p>Drivers, BIOS updates, manuals and original software utilities.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>What You'll Find</h2>
+
+<ul>
+
+<li>✔ Detailed technical specifications</li>
+<li>✔ High-resolution hardware photography</li>
+<li>✔ Historical benchmark results</li>
+<li>✔ Product release information</li>
+<li>✔ Driver and BIOS archive</li>
+<li>✔ Hardware comparison tools</li>
+<li>✔ Overclocking records</li>
+<li>✔ Classic computer documentation</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>Our Mission</h2>
+
+<p>
+
+HardwareVault was created to preserve the history of personal computing by collecting reliable technical information, benchmark data, and original photographs of classic computer hardware. Our goal is to build a free, searchable resource for enthusiasts, collectors, historians, technicians, and future generations interested in the evolution of computer technology.
+
+</p>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 HardwareVault
+</p>
+
+<p>
+Preserving Computer Hardware History
+</p>
+
+<p>
+
+<a href="about.html">About</a> |
+<a href="privacy.html">Privacy Policy</a> |
+<a href="cookie.html">Cookie Policy</a> |
+<a href="contact.html">Contact</a>
+
+</p>
+
+</footer>
+
 </body>
+
 </html>
