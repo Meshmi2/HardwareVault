@@ -1,0 +1,21 @@
+[
+  {
+    "id": "intel-core2-e8400",
+    "brand": "Intel",
+    "model": "Core 2 Duo E8400",
+    "category": "CPU",
+    "year": 2008,
+    "socket": "LGA775",
+    "search": "intel core 2 duo e8400 wolfdale 3ghz 45nm",
+    "file": "/data/cpu/intel-core2-e8400.json"
+  },
+  {
+    "id": "nvidia-8800-gtx",
+    "brand": "NVIDIA",
+    "model": "GeForce 8800 GTX",
+    "category": "GPU",
+    "year": 2006,
+    "search": "8800 gtx g80 directx 10 768mb",
+    "file": "/data/gpu/nvidia-8800-gtx.json"
+  }
+]
